@@ -20,7 +20,7 @@ fn main() {
     let mut encrypted_vote_prod: BigUint = 1u32.into();
 
     for i in 0 .. n {
-        println!("User {}, please vote:", i);
+        println!("User {}, please enter message:", i);
         let vote = read_u32().unwrap();
         vote_sum += vote;
         let encrypted_vote = encrypt(&vote.into(), &public_key, None);
@@ -30,5 +30,5 @@ fn main() {
 
     let decrypted_vote_sum = decrypt(&encrypted_vote_prod, &public_key, &private_key);
     assert_eq!(decrypted_vote_sum, vote_sum.into());
-    println!("Decrypted vote sum is {}, result validated.", decrypted_vote_sum);
+    println!("Decrypted message sum is {}, result validated.", decrypted_vote_sum);
 }
